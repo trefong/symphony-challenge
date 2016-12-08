@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app='myWebStore'>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="theme.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="app.js"></script>
+<title>Simple Web Store</title>
+</head>
+
+<body>
+<h2>List of Store Items</h2>
+
+<div ng-controller='mainController'>
+  Filters:
+  <button ng-click="all()">See All(by price)</button>
+  <button ng-click="lessFilter()">Less than 2000</button>
+  <button ng-click="byName()">By Name</button>
+  <button ng-click="byDate()">By Date</button>
+
+  <table>
+    <tr>
+        <th>Picture</th>
+        <th>Product Name</th>
+        <th>Price</th>
+    </tr>
+    <tr ng-repeat="product in products">
+      <td><img ng-src="{{product.mainImage.ref}}" width="42" height="42"/></td>
+      <td>{{product.name}}</td>
+      <td>${{(product.defaultPriceInCents)/100}}</td>
+
+   </tr>
+  </table>
+</div>
+</body>
+
+</html>
